@@ -4,7 +4,7 @@
   "description": "Water-quality monitoring point coordinates for named Bengaluru lakes. Demo proximity radii are approximate test thresholds, not lake shorelines or danger zones.",
   "sources": [
     {
-      "name": "Central Pollution Control Board — Water Quality Monitoring Network list",
+      "name": "Central Pollution Control Board - Water Quality Monitoring Network list",
       "url": "https://cpcb.nic.in/wqm/WQMN_list.pdf",
       "use": "Lake names and associated monitoring-point coordinates"
     },
@@ -20,7 +20,10 @@
       "layer": "bridge",
       "name": "Demo bridge marker",
       "warning": "Bridge ahead",
-      "coordinates": [12.9785, 77.605],
+      "coordinates": [
+        12.9785,
+        77.605
+      ],
       "detail": "Illustrative Bengaluru demo marker. Slow down and check local signs and conditions. It is not a verified bridge-risk location."
     },
     {
@@ -28,7 +31,10 @@
       "layer": "crossing",
       "name": "Demo unsafe crossing marker",
       "warning": "Unsafe crossing",
-      "coordinates": [12.924, 77.638],
+      "coordinates": [
+        12.924,
+        77.638
+      ],
       "detail": "Illustrative Bengaluru demo marker. Stop and choose a safer route. It is not a verified unsafe-crossing location."
     },
     {
@@ -36,7 +42,10 @@
       "layer": "flood",
       "name": "Demo flood-prone area marker",
       "warning": "Flood-prone area",
-      "coordinates": [12.952, 77.68],
+      "coordinates": [
+        12.952,
+        77.68
+      ],
       "detail": "Illustrative Bengaluru demo marker. Check official local conditions and never drive through floodwater. It is not a verified flood-risk location."
     }
   ],
@@ -44,7 +53,10 @@
     {
       "id": "ulsoor",
       "name": "Ulsoor Lake (Halasuru Lake)",
-      "coordinates": [12.984907, 77.61867],
+      "coordinates": [
+        12.984907,
+        77.61867
+      ],
       "stationCode": 3593,
       "referenceType": "CPCB water-quality monitoring point 3593",
       "demoAlertRadiusMeters": 650
@@ -52,7 +64,10 @@
     {
       "id": "sankey",
       "name": "Sankey Tank",
-      "coordinates": [13.008775, 77.574124],
+      "coordinates": [
+        13.008775,
+        77.574124
+      ],
       "stationCode": 3594,
       "referenceType": "CPCB water-quality monitoring point 3594",
       "demoAlertRadiusMeters": 550
@@ -60,7 +75,10 @@
     {
       "id": "bellandur",
       "name": "Bellandur Lake",
-      "coordinates": [12.935903, 77.670072],
+      "coordinates": [
+        12.935903,
+        77.670072
+      ],
       "stationCode": 3602,
       "referenceType": "CPCB water-quality monitoring point 3602",
       "demoAlertRadiusMeters": 1000
@@ -68,7 +86,10 @@
     {
       "id": "hebbal",
       "name": "Hebbal Lake",
-      "coordinates": [13.048774, 77.587205],
+      "coordinates": [
+        13.048774,
+        77.587205
+      ],
       "stationCode": 3625,
       "referenceType": "CPCB water-quality monitoring point 3625",
       "demoAlertRadiusMeters": 700
@@ -76,7 +97,10 @@
     {
       "id": "varthur",
       "name": "Varthur Lake",
-      "coordinates": [12.945146, 77.74068],
+      "coordinates": [
+        12.945146,
+        77.74068
+      ],
       "stationCode": 3608,
       "referenceType": "CPCB water-quality monitoring point 3608",
       "demoAlertRadiusMeters": 1000
@@ -84,7 +108,10 @@
     {
       "id": "madiwala",
       "name": "Madiwala Tank",
-      "coordinates": [12.908694, 77.616427],
+      "coordinates": [
+        12.908694,
+        77.616427
+      ],
       "stationCode": 3589,
       "referenceType": "CPCB water-quality monitoring point 3589",
       "demoAlertRadiusMeters": 800
@@ -92,7 +119,10 @@
     {
       "id": "yediur",
       "name": "Yediyur Lake",
-      "coordinates": [12.933697, 77.577689],
+      "coordinates": [
+        12.933697,
+        77.577689
+      ],
       "stationCode": 3592,
       "referenceType": "CPCB water-quality monitoring point 3592",
       "demoAlertRadiusMeters": 600
@@ -100,7 +130,10 @@
     {
       "id": "kempambudhi",
       "name": "Kempambudhi Lake",
-      "coordinates": [12.951514, 77.560386],
+      "coordinates": [
+        12.951514,
+        77.560386
+      ],
       "stationCode": 3591,
       "referenceType": "CPCB water-quality monitoring point 3591",
       "demoAlertRadiusMeters": 600
@@ -108,7 +141,10 @@
     {
       "id": "jakkur",
       "name": "Jakkur Lake",
-      "coordinates": [13.089447, 77.610713],
+      "coordinates": [
+        13.089447,
+        77.610713
+      ],
       "stationCode": 3627,
       "referenceType": "CPCB water-quality monitoring point 3627",
       "demoAlertRadiusMeters": 800
@@ -116,7 +152,10 @@
     {
       "id": "nagavara",
       "name": "Nagavara Tank",
-      "coordinates": [13.045455, 77.609574],
+      "coordinates": [
+        13.045455,
+        77.609574
+      ],
       "stationCode": 3626,
       "referenceType": "CPCB water-quality monitoring point 3626",
       "demoAlertRadiusMeters": 650

@@ -1,581 +1,422 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f8f7" />
-    <meta
-      name="description"
-      content="SFY helps you stay aware of water nearby. A local-first safety awareness prototype."
-    />
-    <title>SFY V2 — Safety for you</title>
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="/v2.css" />
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  </head>
 
-  <body>
-    <div class="app-shell">
-      <aside class="rail">
-        <a class="brand" href="#home" aria-label="SFY home"
-          ><span class="brand-mark">s<span>f</span>y</span
-          ><span class="brand-caption">SAFETY FOR YOU</span></a
-        >
-        <nav class="rail-nav" aria-label="Main navigation">
-          <a class="nav-item active" href="#home" aria-current="page"
-            ><span class="nav-icon">⌂</span><span>Overview</span></a
-          >
-          <a class="nav-item" href="#map"><span class="nav-icon">⌖</span><span>Safety map</span></a>
-          <a class="nav-item" href="#layers"><span class="nav-icon">▤</span><span>How it works</span></a>
-        </nav>
-        <div class="rail-bottom">
-          <span class="avatar">S</span
-          ><span class="rail-user"><b>Stay aware</b><small>Your safety companion</small></span
-          ><span class="more">···</span>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f8f7" />
+  <meta name="description"
+    content="SFY helps you stay aware of water nearby. A local-first safety awareness prototype." />
+  <title>SFY V2 - Safety for you</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/v2.css" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="rail">
+      <a class="brand" href="#home" aria-label="SFY home"><span class="brand-mark">s<span>f</span>y</span><span
+          class="brand-caption">SAFETY FOR YOU</span></a>
+      <nav class="rail-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#home" aria-current="page"><span
+            class="nav-icon">⌂</span><span>Overview</span></a>
+        <a class="nav-item" href="#map"><span class="nav-icon">⌖</span><span>Safety map</span></a>
+        <a class="nav-item" href="#layers"><span class="nav-icon">▤</span><span>How it works</span></a>
+      </nav>
+      <div class="rail-bottom">
+        <span class="avatar">S</span><span class="rail-user"><b>Stay aware</b><small>Your safety
+            companion</small></span><span class="more">···</span>
+      </div>
+    </aside>
+
+    <main id="home" class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">s<span>f</span>y</span></div>
+        <div class="breadcrumb">Your safety <span>/</span> <b>Overview</b></div>
+        <div class="top-actions">
+          <a class="version-link" href="/v1/">V1</a><span class="version-current">V2</span>
+          <button class="install-button" id="install-button" hidden>Install app</button>
+          <div class="connection-pill">
+            <span class="connection-dot"></span><span id="connection-text">Checking connection</span>
+          </div>
+          <button id="locate-btn" class="icon-button" aria-label="Use my location" title="Use my location">
+            ⌖</button><button class="profile-button" aria-label="Profile">S</button>
         </div>
-      </aside>
+      </header>
 
-      <main id="home" class="main-content">
-        <header class="topbar">
-          <div class="mobile-brand"><span class="brand-mark">s<span>f</span>y</span></div>
-          <div class="breadcrumb">Your safety <span>/</span> <b>Overview</b></div>
-          <div class="top-actions">
-            <a class="version-link" href="/v1/">V1</a><span class="version-current">V2</span>
-            <button class="install-button" id="install-button" hidden>Install app</button>
-            <div class="connection-pill">
-              <span class="connection-dot"></span><span id="connection-text">Checking connection</span>
-            </div>
-            <button id="locate-btn" class="icon-button" aria-label="Use my location" title="Use my location">
-              ⌖</button
-            ><button class="profile-button" aria-label="Profile">S</button>
-          </div>
-        </header>
-
-        <div class="current-version-banner">
-          <span class="version-check">✓</span
-          ><span><b>Currently viewing V2</b><small>SFY interactive prototype</small></span
-          ><a href="/v1/">View V1</a>
+      <div class="current-version-banner">
+        <span class="version-check">✓</span><span><b>Currently viewing V2</b><small>SFY interactive
+            prototype</small></span><a href="/v1/">View V1</a>
+      </div>
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE MORE AWARE, EVERY DAY</p>
+          <h1>
+            Stay close to what<br class="desktop-break" />
+            keeps you <em>safe.</em>
+          </h1>
+          <p class="welcome-copy">
+            Know when water is nearby. Take a moment, check your surroundings, and make a safer choice.
+          </p>
         </div>
-        <section class="welcome-row">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE MORE AWARE, EVERY DAY</p>
-            <h1>
-              Stay close to what<br class="desktop-break" />
-              keeps you <em>safe.</em>
-            </h1>
-            <p class="welcome-copy">
-              Know when water is nearby. Take a moment, check your surroundings, and make a safer choice.
-            </p>
-          </div>
-          <div class="date-chip">
-            <span class="sun-icon">☀</span
-            ><span><b id="today-label">Today</b><small>Safety starts with awareness</small></span>
-          </div>
-        </section>
-
-        <section class="dashboard-grid">
-          <article class="map-card" id="map">
-            <div class="map-heading">
-              <div>
-                <span class="section-kicker">YOUR AREA <span class="live-dot"></span></span>
-                <h2>Nearby safety map</h2>
-                <p id="location-label">Bengaluru lake points · Start a location test to check proximity</p>
-              </div>
-              <button class="map-menu" aria-label="Map options">···</button>
-            </div>
-            <div class="map-wrap">
-              <div class="map-filters" role="group" aria-label="Filter safety-map layers">
-                <button class="filter-button active" data-layer="water" aria-pressed="true">
-                  Bengaluru lakes
-                </button>
-                <button class="filter-button active" data-layer="bridge" aria-pressed="true">
-                  Bridge ahead
-                </button>
-                <button class="filter-button active" data-layer="crossing" aria-pressed="true">
-                  Unsafe crossing
-                </button>
-                <button class="filter-button active" data-layer="flood" aria-pressed="true">
-                  Flood-prone area
-                </button>
-              </div>
-              <div id="map-status" class="map-status" role="status">Loading Bengaluru lake data and map…</div>
-              <div
-                id="real-map"
-                class="real-map"
-                role="application"
-                aria-label="OpenStreetMap showing Bengaluru lakes and approximate demo alert points"
-              ></div>
-              <svg
-                class="map-art"
-                hidden
-                viewBox="0 0 900 510"
-                role="img"
-                aria-label="Illustrated map showing a pond, bridge, flood area and your location"
-              >
-                <defs>
-                  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
-                    <circle cx="2" cy="2" r="1" fill="#dbe5d9" />
-                  </pattern>
-                  <pattern id="waterlines" width="34" height="18" patternUnits="userSpaceOnUse">
-                    <path
-                      d="M0 8 Q8 2 17 8 T34 8"
-                      fill="none"
-                      stroke="#a6d4d5"
-                      stroke-width="1.5"
-                      opacity=".7"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="900" height="510" fill="#edf2e8" />
-                <rect width="900" height="510" fill="url(#dots)" />
-                <path
-                  d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218"
-                  fill="none"
-                  stroke="#dce8d6"
-                  stroke-width="62"
-                />
-                <path
-                  d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218"
-                  fill="none"
-                  stroke="#fffdf8"
-                  stroke-width="34"
-                />
-                <path
-                  d="M135 -20 C180 100 150 223 199 320 S220 434 276 540"
-                  fill="none"
-                  stroke="#dce8d6"
-                  stroke-width="49"
-                />
-                <path
-                  d="M135 -20 C180 100 150 223 199 320 S220 434 276 540"
-                  fill="none"
-                  stroke="#fffdf8"
-                  stroke-width="25"
-                />
-                <path
-                  d="M563 -10 C528 101 566 164 533 265 S530 398 480 525"
-                  fill="none"
-                  stroke="#fffdf8"
-                  stroke-width="18"
-                />
-                <path
-                  d="M563 -10 C528 101 566 164 533 265 S530 398 480 525"
-                  fill="none"
-                  stroke="#e1e9dd"
-                  stroke-width="2"
-                  stroke-dasharray="7 9"
-                />
-                <path
-                  d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
-                  fill="#bfe1df"
-                />
-                <path
-                  d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
-                  fill="url(#waterlines)"
-                />
-                <path
-                  d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
-                  fill="#c6e3df"
-                />
-                <path
-                  d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
-                  fill="url(#waterlines)"
-                />
-                <path
-                  d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z"
-                  fill="#c6e3df"
-                />
-                <path
-                  d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z"
-                  fill="url(#waterlines)"
-                />
-                <path
-                  class="flood-zone"
-                  d="M582 62 L741 33 L803 101 L777 179 L643 189 L594 146Z"
-                  fill="#f7c68d"
-                  opacity=".33"
-                  stroke="#e6a75f"
-                  stroke-width="2"
-                  stroke-dasharray="7 7"
-                />
-                <g class="map-label">
-                  <rect x="369" y="193" width="102" height="26" rx="13" />
-                  <text x="420" y="210" text-anchor="middle">LOTUS POND</text>
-                </g>
-                <g class="map-label soft">
-                  <rect x="683" y="415" width="111" height="26" rx="13" />
-                  <text x="738" y="432" text-anchor="middle">MILLER LAKE</text>
-                </g>
-                <g class="map-label soft">
-                  <rect x="44" y="376" width="108" height="26" rx="13" />
-                  <text x="98" y="393" text-anchor="middle">NORTH POND</text>
-                </g>
-                <g class="place-label">
-                  <text x="270" y="109">Maple Street</text>
-                  <text x="602" y="281">Riverside Road</text>
-                  <text x="294" y="394">Market Square</text>
-                  <text x="724" y="237">Eastwood</text>
-                </g>
-                <g
-                  class="hazard-marker water-marker"
-                  data-hazard="water"
-                  data-name="Lotus Pond"
-                  data-warning="Water nearby"
-                  data-detail="Sample pond marker. Keep a safe distance from the edge and stay on marked paths."
-                  role="button"
-                  tabindex="0"
-                  aria-label="Sample water hazard: Lotus Pond"
-                  transform="translate(421 123)"
-                >
-                  <circle class="marker-halo" r="25" />
-                  <circle class="marker-core" r="17" />
-                  <text y="5" text-anchor="middle">≈</text>
-                </g>
-                <g
-                  class="hazard-marker bridge-marker"
-                  data-hazard="bridge"
-                  data-name="Riverside Bridge"
-                  data-warning="Bridge ahead"
-                  data-detail="Sample bridge marker. Slow down and check local signs and conditions."
-                  role="button"
-                  tabindex="0"
-                  aria-label="Sample bridge hazard: Riverside Bridge"
-                  transform="translate(605 241)"
-                >
-                  <circle class="marker-halo" r="25" />
-                  <circle class="marker-core" r="17" />
-                  <text y="5" text-anchor="middle">!</text>
-                </g>
-                <g
-                  class="hazard-marker flood-marker"
-                  data-hazard="flood"
-                  data-name="Eastwood Flood Zone"
-                  data-warning="Flood-prone area"
-                  data-detail="Sample seasonal zone. Check official local conditions and never drive through floodwater."
-                  role="button"
-                  tabindex="0"
-                  aria-label="Sample flood zone: Eastwood"
-                  transform="translate(704 114)"
-                >
-                  <circle class="marker-halo" r="25" />
-                  <circle class="marker-core" r="17" />
-                  <text y="5" text-anchor="middle">↗</text>
-                </g>
-                <g
-                  class="hazard-marker water-marker"
-                  data-hazard="water"
-                  data-name="Miller Lake"
-                  data-warning="Water nearby"
-                  data-detail="Sample lake marker. Keep children close and stay behind any barriers."
-                  role="button"
-                  tabindex="0"
-                  aria-label="Sample water hazard: Miller Lake"
-                  transform="translate(729 365)"
-                >
-                  <circle class="marker-halo" r="25" />
-                  <circle class="marker-core" r="17" />
-                  <text y="5" text-anchor="middle">≈</text>
-                </g>
-                <g
-                  class="hazard-marker water-marker"
-                  data-hazard="water"
-                  data-name="North Pond"
-                  data-warning="Water nearby"
-                  data-detail="Sample pond marker. Avoid entering the water unless it is a designated, supervised swimming area."
-                  role="button"
-                  tabindex="0"
-                  aria-label="Sample water hazard: North Pond"
-                  transform="translate(97 319)"
-                >
-                  <circle class="marker-halo" r="25" />
-                  <circle class="marker-core" r="17" />
-                  <text y="5" text-anchor="middle">≈</text>
-                </g>
-                <g class="you-marker" id="you-marker" transform="translate(322 272)">
-                  <circle class="you-pulse" r="25" />
-                  <circle class="you-core" r="10" />
-                  <circle class="you-center" r="4" />
-                </g>
-                <g class="you-label" transform="translate(337 280)">
-                  <rect width="89" height="24" rx="12" />
-                  <text x="44" y="16" text-anchor="middle">SAMPLE POSITION</text>
-                </g>
-              </svg>
-              <div class="map-floating">
-                <span class="legend-dot water-dot"></span><span>Lake reference points</span
-                ><span class="legend-separator"></span><span>Alert radii are approximate</span>
-              </div>
-              <div class="zoom-controls">
-                <button aria-label="Zoom in" id="zoom-in">+</button
-                ><button aria-label="Zoom out" id="zoom-out">−</button>
-              </div>
-              <div class="map-note"><span>ⓘ</span> Point data · Not shoreline boundaries</div>
-            </div>
-            <div class="map-footer">
-              <div class="map-footer-main">
-                <div class="hazard-summary">
-                  <span class="summary-icon">≈</span
-                  ><span
-                    ><b>10 Bengaluru lake points</b><small>Demo subset · approximate test radii</small></span
-                  >
-                </div>
-                <div class="map-actions">
-                  <button id="tracking-button" class="secondary-button" aria-pressed="false" disabled>
-                    Start location test <span>⌖</span></button
-                  ><button
-                    id="test-water-bodies"
-                    class="secondary-button"
-                    aria-label="Center on Bengaluru and test the water and safety alerts"
-                    disabled
-                  >
-                    Test water bodies</button
-                  ><button id="simulate-btn" class="primary-button">Try alert demo <span>↗</span></button>
-                </div>
-              </div>
-              <small id="tracking-status" class="tracking-status" aria-live="polite"
-                >Load lake data, then start a location test. GPS is compared locally; map tile requests reveal
-                the viewed area. Keep this page open and do not interact while moving.</small
-              >
-              <small class="lake-source-note"
-                >Lake reference points:
-                <a href="https://cpcb.nic.in/wqm/WQMN_list.pdf" target="_blank" rel="noopener noreferrer"
-                  >CPCB monitoring list</a
-                >
-                · Names cross-checked with
-                <a href="https://lms.bbmpgov.in/lake" target="_blank" rel="noopener noreferrer"
-                  >BBMP inventory</a
-                ></small
-              >
-            </div>
-          </article>
-
-          <aside class="side-column">
-            <article class="alert-card">
-              <div class="alert-top">
-                <span class="alert-icon">!</span><span class="alert-status"><i></i> SAFETY CHECK</span>
-              </div>
-              <h2>Water is part<br />of the journey.</h2>
-              <p>
-                Water can be closer than it looks. Slow down near the edge, stay on marked paths, and keep
-                children within reach.
-              </p>
-              <div class="alert-divider"></div>
-              <div class="purpose-title">
-                <span>What brings you near?</span><small>Choose your activity</small>
-              </div>
-              <div class="purpose-grid" role="group" aria-label="Choose your activity">
-                <button class="purpose-button selected" data-purpose="Walking"><span>↗</span>Walking</button
-                ><button class="purpose-button" data-purpose="Driving"><span>⌁</span>Driving</button
-                ><button class="purpose-button" data-purpose="Fishing"><span>♧</span>Fishing</button
-                ><button class="purpose-button" data-purpose="Swimming"><span>≋</span>Swimming</button>
-              </div>
-              <p class="purpose-response" id="purpose-response" aria-live="polite">
-                Stay on marked paths around the water.
-              </p>
-            </article>
-            <article class="layers-card" id="layers">
-              <div class="layers-header">
-                <div>
-                  <span class="section-kicker">BUILT FOR REAL LIFE</span>
-                  <h3>Safety, in layers.</h3>
-                </div>
-                <span class="layers-mark">✳</span>
-              </div>
-              <div class="layer-list">
-                <div class="layer-row">
-                  <span class="layer-number">01</span><span class="layer-symbol map-symbol">⌖</span
-                  ><span><b>Know your surroundings</b><small>Location awareness</small></span
-                  ><span class="layer-check">✓</span>
-                </div>
-                <div class="layer-row">
-                  <span class="layer-number">02</span><span class="layer-symbol phone-symbol">◉</span
-                  ><span><b>Get a timely reminder</b><small>On-device notification</small></span
-                  ><span class="layer-check">✓</span>
-                </div>
-                <div class="layer-row">
-                  <span class="layer-number">03</span><span class="layer-symbol offline-symbol">↯</span
-                  ><span><b>Keep essentials available</b><small>Offline safety guide</small></span
-                  ><span class="layer-check">✓</span>
-                </div>
-              </div>
-              <div class="offline-banner">
-                <span class="offline-icon">⌁</span
-                ><span
-                  ><b>Safety guide works offline</b
-                  ><small>Map data and location need a device and prior setup.</small></span
-                >
-              </div>
-            </article>
-          </aside>
-        </section>
-
-        <section class="bottom-row">
-          <div class="bottom-intro">
-            <span class="section-kicker">AWARENESS IS A GOOD FIRST STEP</span>
-            <h2>Make the safer choice<br />the easier one.</h2>
-            <p>
-              SFY is a concept for helping people notice nearby water and pause before risk. Start with local
-              knowledge and trusted safety guidance.
-            </p>
-            <a class="learn-link" href="#safety-guide">Read the quick safety guide <span>↗</span></a>
-          </div>
-          <div class="color-guide" id="safety-guide">
-            <div class="guide-head"><span>SAFETY ZONES</span><span>AT A GLANCE</span></div>
-            <div class="guide-row">
-              <span class="guide-color blue"></span
-              ><span><b>Water nearby</b><small>Pause and stay aware</small></span
-              ><span class="guide-arrow">↗</span>
-            </div>
-            <div class="guide-row">
-              <span class="guide-color yellow"></span
-              ><span><b>Bridge ahead</b><small>Slow down and take care</small></span
-              ><span class="guide-arrow">↗</span>
-            </div>
-            <div class="guide-row">
-              <span class="guide-color red"></span
-              ><span><b>Unsafe crossing</b><small>Stop and find a safer route</small></span
-              ><span class="guide-arrow">↗</span>
-            </div>
-            <div class="guide-row">
-              <span class="guide-color orange"></span
-              ><span><b>Flood-prone area</b><small>Check local conditions</small></span
-              ><span class="guide-arrow">↗</span>
-            </div>
-          </div>
-        </section>
-        <section class="v2-tools" aria-label="Safety tools">
-          <article class="checklist-card">
-            <div class="tools-heading">
-              <div>
-                <span class="section-kicker">QUICK CHECK-IN</span>
-                <h2>Before you head near water</h2>
-              </div>
-              <button id="reset-checklist" class="text-button">Reset</button>
-            </div>
-            <div class="checklist-items">
-              <label
-                ><input type="checkbox" data-check="distance" /><span
-                  >Keep a safe distance from the edge</span
-                ></label
-              >
-              <label
-                ><input type="checkbox" data-check="path" /><span>Use marked paths and crossings</span></label
-              >
-              <label
-                ><input type="checkbox" data-check="children" /><span>Keep children within reach</span></label
-              >
-              <label
-                ><input type="checkbox" data-check="conditions" /><span
-                  >Check local signs and conditions</span
-                ></label
-              >
-            </div>
-            <p class="local-save-note">
-              Checklist stays on this device. It is a reminder, not a safety guarantee.
-            </p>
-          </article>
-          <article class="offline-guide" id="offline-guide">
-            <span class="section-kicker">QUICK GUIDE · AVAILABLE OFFLINE AFTER FIRST LOAD</span>
-            <h2>If someone is in danger</h2>
-            <p>
-              Call your local emergency number. Do not enter the water to attempt a rescue unless you are
-              trained and equipped. From a safe place, alert a lifeguard or nearby responders and follow their
-              instructions.
-            </p>
-            <details>
-              <summary>Everyday water safety tips</summary>
-              <ul>
-                <li>Choose designated swimming areas and follow local signs.</li>
-                <li>Wear an appropriate life jacket when boating or fishing near deep water.</li>
-                <li>Never drive or walk through floodwater.</li>
-                <li>Keep children close and actively supervised around water.</li>
-              </ul>
-            </details>
-            <small>Guidance is general. Follow local emergency instructions.</small>
-          </article>
-        </section>
-        <footer>
-          <div class="footer-primary">
-            <span>SFY <span class="footer-sep">·</span> Safety for you</span
-            ><span>Awareness supports safety. It cannot replace local guidance or your own judgment.</span>
-          </div>
-          <div class="footer-credit">
-            <span
-              >Built by
-              <a href="https://ranganath.netlify.app/" target="_blank" rel="noopener noreferrer"
-                >Ranganath V</a
-              ></span
-            ><span
-              >Inspired by
-              <a href="http://linkedin.com/in/akash-m-0613a5311" target="_blank" rel="noopener noreferrer"
-                >Akash M.</a
-              ></span
-            ><span
-              >Connect on
-              <a
-                href="https://www.linkedin.com/in/ranganath-v-75597315a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              ></span
-            ><span
-              ><a href="https://github.com/Ranganagth" target="_blank" rel="noopener noreferrer"
-                >GitHub repo</a
-              ></span
-            ><span
-              ><a
-                href="https://github.com/akashf1sf/SFY---Safety-For-You"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Inspired project</a
-              ></span
-            >
-          </div>
-        </footer>
-      </main>
-    </div>
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <div id="alert-modal" class="modal-backdrop" hidden>
-      <section class="alert-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" aria-label="Close alert">×</button><span class="modal-symbol">≈</span
-        ><span class="section-kicker">SFY SAFETY REMINDER</span>
-        <h2 id="modal-title">Water nearby.</h2>
-        <p id="modal-copy">
-          Lotus Pond is close to your route. Stay on marked paths and keep a safe distance from the edge.
-        </p>
-        <ol id="alert-test-list" class="alert-test-list" aria-label="Alert categories in this demo" hidden>
-          <li data-alert-category="Water nearby">Water nearby</li>
-          <li data-alert-category="Bridge ahead">Bridge ahead</li>
-          <li data-alert-category="Unsafe crossing">Unsafe crossing</li>
-          <li data-alert-category="Flood-prone area">Flood-prone area</li>
-        </ol>
-        <div class="scenario-step" id="scenario-step">STEP 1 OF 3 · SAMPLE APPROACH</div>
-        <div class="modal-actions">
-          <button class="primary-button" id="scenario-next">Continue demo <span>✓</span></button
-          ><button class="text-button" id="guide-btn">Read safety tips</button>
+        <div class="date-chip">
+          <span class="sun-icon">☀</span><span><b id="today-label">Today</b><small>Safety starts with
+              awareness</small></span>
         </div>
-        <small class="modal-disclaimer">Demo alert · Sample location · Not an emergency service</small>
       </section>
-    </div>
-    <div id="hazard-modal" class="modal-backdrop" hidden>
-      <section
-        class="alert-modal hazard-info-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="hazard-title"
-      >
-        <button class="modal-close hazard-close" aria-label="Close lake details">×</button
-        ><span class="modal-symbol">≈</span><span class="section-kicker">LAKE REFERENCE POINT</span>
-        <h2 id="hazard-title">Water nearby</h2>
-        <p id="hazard-detail"></p>
-        <small class="modal-disclaimer"
-          >CPCB monitoring point · Approximate demo radius · Not a shoreline or danger boundary</small
-        >
+
+      <section class="dashboard-grid">
+        <article class="map-card" id="map">
+          <div class="map-heading">
+            <div>
+              <span class="section-kicker">YOUR AREA <span class="live-dot"></span></span>
+              <h2>Nearby safety map</h2>
+              <p id="location-label">Bengaluru lake points · Start a location test to check proximity</p>
+            </div>
+            <button class="map-menu" aria-label="Map options">···</button>
+          </div>
+          <div class="map-wrap">
+            <div class="map-filters" role="group" aria-label="Filter safety-map layers">
+              <button class="filter-button active" data-layer="water" aria-pressed="true">
+                Bengaluru lakes
+              </button>
+              <button class="filter-button active" data-layer="bridge" aria-pressed="true">
+                Bridge ahead
+              </button>
+              <button class="filter-button active" data-layer="crossing" aria-pressed="true">
+                Unsafe crossing
+              </button>
+              <button class="filter-button active" data-layer="flood" aria-pressed="true">
+                Flood-prone area
+              </button>
+            </div>
+            <div id="map-status" class="map-status" role="status">Loading Bengaluru lake data and map…</div>
+            <div id="real-map" class="real-map" role="application"
+              aria-label="OpenStreetMap showing Bengaluru lakes and approximate demo alert points"></div>
+            <svg class="map-art" hidden viewBox="0 0 900 510" role="img"
+              aria-label="Illustrated map showing a pond, bridge, flood area and your location">
+              <defs>
+                <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="2" cy="2" r="1" fill="#dbe5d9" />
+                </pattern>
+                <pattern id="waterlines" width="34" height="18" patternUnits="userSpaceOnUse">
+                  <path d="M0 8 Q8 2 17 8 T34 8" fill="none" stroke="#a6d4d5" stroke-width="1.5" opacity=".7" />
+                </pattern>
+              </defs>
+              <rect width="900" height="510" fill="#edf2e8" />
+              <rect width="900" height="510" fill="url(#dots)" />
+              <path d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218" fill="none" stroke="#dce8d6"
+                stroke-width="62" />
+              <path d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218" fill="none" stroke="#fffdf8"
+                stroke-width="34" />
+              <path d="M135 -20 C180 100 150 223 199 320 S220 434 276 540" fill="none" stroke="#dce8d6"
+                stroke-width="49" />
+              <path d="M135 -20 C180 100 150 223 199 320 S220 434 276 540" fill="none" stroke="#fffdf8"
+                stroke-width="25" />
+              <path d="M563 -10 C528 101 566 164 533 265 S530 398 480 525" fill="none" stroke="#fffdf8"
+                stroke-width="18" />
+              <path d="M563 -10 C528 101 566 164 533 265 S530 398 480 525" fill="none" stroke="#e1e9dd" stroke-width="2"
+                stroke-dasharray="7 9" />
+              <path
+                d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
+                fill="#bfe1df" />
+              <path
+                d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
+                fill="url(#waterlines)" />
+              <path d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
+                fill="#c6e3df" />
+              <path d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
+                fill="url(#waterlines)" />
+              <path d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z" fill="#c6e3df" />
+              <path d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z"
+                fill="url(#waterlines)" />
+              <path class="flood-zone" d="M582 62 L741 33 L803 101 L777 179 L643 189 L594 146Z" fill="#f7c68d"
+                opacity=".33" stroke="#e6a75f" stroke-width="2" stroke-dasharray="7 7" />
+              <g class="map-label">
+                <rect x="369" y="193" width="102" height="26" rx="13" />
+                <text x="420" y="210" text-anchor="middle">LOTUS POND</text>
+              </g>
+              <g class="map-label soft">
+                <rect x="683" y="415" width="111" height="26" rx="13" />
+                <text x="738" y="432" text-anchor="middle">MILLER LAKE</text>
+              </g>
+              <g class="map-label soft">
+                <rect x="44" y="376" width="108" height="26" rx="13" />
+                <text x="98" y="393" text-anchor="middle">NORTH POND</text>
+              </g>
+              <g class="place-label">
+                <text x="270" y="109">Maple Street</text>
+                <text x="602" y="281">Riverside Road</text>
+                <text x="294" y="394">Market Square</text>
+                <text x="724" y="237">Eastwood</text>
+              </g>
+              <g class="hazard-marker water-marker" data-hazard="water" data-name="Lotus Pond"
+                data-warning="Water nearby"
+                data-detail="Sample pond marker. Keep a safe distance from the edge and stay on marked paths."
+                role="button" tabindex="0" aria-label="Sample water hazard: Lotus Pond" transform="translate(421 123)">
+                <circle class="marker-halo" r="25" />
+                <circle class="marker-core" r="17" />
+                <text y="5" text-anchor="middle">≈</text>
+              </g>
+              <g class="hazard-marker bridge-marker" data-hazard="bridge" data-name="Riverside Bridge"
+                data-warning="Bridge ahead"
+                data-detail="Sample bridge marker. Slow down and check local signs and conditions." role="button"
+                tabindex="0" aria-label="Sample bridge hazard: Riverside Bridge" transform="translate(605 241)">
+                <circle class="marker-halo" r="25" />
+                <circle class="marker-core" r="17" />
+                <text y="5" text-anchor="middle">!</text>
+              </g>
+              <g class="hazard-marker flood-marker" data-hazard="flood" data-name="Eastwood Flood Zone"
+                data-warning="Flood-prone area"
+                data-detail="Sample seasonal zone. Check official local conditions and never drive through floodwater."
+                role="button" tabindex="0" aria-label="Sample flood zone: Eastwood" transform="translate(704 114)">
+                <circle class="marker-halo" r="25" />
+                <circle class="marker-core" r="17" />
+                <text y="5" text-anchor="middle">↗</text>
+              </g>
+              <g class="hazard-marker water-marker" data-hazard="water" data-name="Miller Lake"
+                data-warning="Water nearby"
+                data-detail="Sample lake marker. Keep children close and stay behind any barriers." role="button"
+                tabindex="0" aria-label="Sample water hazard: Miller Lake" transform="translate(729 365)">
+                <circle class="marker-halo" r="25" />
+                <circle class="marker-core" r="17" />
+                <text y="5" text-anchor="middle">≈</text>
+              </g>
+              <g class="hazard-marker water-marker" data-hazard="water" data-name="North Pond"
+                data-warning="Water nearby"
+                data-detail="Sample pond marker. Avoid entering the water unless it is a designated, supervised swimming area."
+                role="button" tabindex="0" aria-label="Sample water hazard: North Pond" transform="translate(97 319)">
+                <circle class="marker-halo" r="25" />
+                <circle class="marker-core" r="17" />
+                <text y="5" text-anchor="middle">≈</text>
+              </g>
+              <g class="you-marker" id="you-marker" transform="translate(322 272)">
+                <circle class="you-pulse" r="25" />
+                <circle class="you-core" r="10" />
+                <circle class="you-center" r="4" />
+              </g>
+              <g class="you-label" transform="translate(337 280)">
+                <rect width="89" height="24" rx="12" />
+                <text x="44" y="16" text-anchor="middle">SAMPLE POSITION</text>
+              </g>
+            </svg>
+            <div class="map-floating">
+              <span class="legend-dot water-dot"></span><span>Lake reference points</span><span
+                class="legend-separator"></span><span>Alert radii are approximate</span>
+            </div>
+            <div class="zoom-controls">
+              <button aria-label="Zoom in" id="zoom-in">+</button><button aria-label="Zoom out" id="zoom-out">−</button>
+            </div>
+            <div class="map-note"><span>ⓘ</span> Point data · Not shoreline boundaries</div>
+          </div>
+          <div class="map-footer">
+            <div class="map-footer-main">
+              <div class="hazard-summary">
+                <span class="summary-icon">≈</span><span><b>10 Bengaluru lake points</b><small>Demo subset · approximate
+                    test radii</small></span>
+              </div>
+              <div class="map-actions">
+                <button id="tracking-button" class="secondary-button" aria-pressed="false" disabled>
+                  Start location test <span>⌖</span></button><button id="test-water-bodies" class="secondary-button"
+                  aria-label="Center on Bengaluru and test the water and safety alerts" disabled>
+                  Test water bodies</button><button id="simulate-btn" class="primary-button">Try alert demo
+                  <span>↗</span></button>
+              </div>
+            </div>
+            <small id="tracking-status" class="tracking-status" aria-live="polite">Load lake data, then start a location
+              test. GPS is compared locally; map tile requests reveal
+              the viewed area. Keep this page open and do not interact while moving.</small>
+            <small class="lake-source-note">Lake reference points:
+              <a href="https://cpcb.nic.in/wqm/WQMN_list.pdf" target="_blank" rel="noopener noreferrer">CPCB monitoring
+                list</a>
+              · Names cross-checked with
+              <a href="https://lms.bbmpgov.in/lake" target="_blank" rel="noopener noreferrer">BBMP inventory</a></small>
+          </div>
+        </article>
+
+        <aside class="side-column">
+          <article class="alert-card">
+            <div class="alert-top">
+              <span class="alert-icon">!</span><span class="alert-status"><i></i> SAFETY CHECK</span>
+            </div>
+            <h2>Water is part<br />of the journey.</h2>
+            <p>
+              Water can be closer than it looks. Slow down near the edge, stay on marked paths, and keep
+              children within reach.
+            </p>
+            <div class="alert-divider"></div>
+            <div class="purpose-title">
+              <span>What brings you near?</span><small>Choose your activity</small>
+            </div>
+            <div class="purpose-grid" role="group" aria-label="Choose your activity">
+              <button class="purpose-button selected" data-purpose="Walking"><span>↗</span>Walking</button><button
+                class="purpose-button" data-purpose="Driving"><span>⌁</span>Driving</button><button
+                class="purpose-button" data-purpose="Fishing"><span>♧</span>Fishing</button><button
+                class="purpose-button" data-purpose="Swimming"><span>≋</span>Swimming</button>
+            </div>
+            <p class="purpose-response" id="purpose-response" aria-live="polite">
+              Stay on marked paths around the water.
+            </p>
+          </article>
+          <article class="layers-card" id="layers">
+            <div class="layers-header">
+              <div>
+                <span class="section-kicker">BUILT FOR REAL LIFE</span>
+                <h3>Safety, in layers.</h3>
+              </div>
+              <span class="layers-mark">✳</span>
+            </div>
+            <div class="layer-list">
+              <div class="layer-row">
+                <span class="layer-number">01</span><span class="layer-symbol map-symbol">⌖</span><span><b>Know your
+                    surroundings</b><small>Location awareness</small></span><span class="layer-check">✓</span>
+              </div>
+              <div class="layer-row">
+                <span class="layer-number">02</span><span class="layer-symbol phone-symbol">◉</span><span><b>Get a
+                    timely reminder</b><small>On-device notification</small></span><span class="layer-check">✓</span>
+              </div>
+              <div class="layer-row">
+                <span class="layer-number">03</span><span class="layer-symbol offline-symbol">↯</span><span><b>Keep
+                    essentials available</b><small>Offline safety guide</small></span><span class="layer-check">✓</span>
+              </div>
+            </div>
+            <div class="offline-banner">
+              <span class="offline-icon">⌁</span><span><b>Safety guide works offline</b><small>Map data and location
+                  need a device and prior setup.</small></span>
+            </div>
+          </article>
+        </aside>
       </section>
-    </div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
-    <script src="/app-v2.js" defer></script>
-  </body>
+
+      <section class="bottom-row">
+        <div class="bottom-intro">
+          <span class="section-kicker">AWARENESS IS A GOOD FIRST STEP</span>
+          <h2>Make the safer choice<br />the easier one.</h2>
+          <p>
+            SFY is a concept for helping people notice nearby water and pause before risk. Start with local
+            knowledge and trusted safety guidance.
+          </p>
+          <a class="learn-link" href="#safety-guide">Read the quick safety guide <span>↗</span></a>
+        </div>
+        <div class="color-guide" id="safety-guide">
+          <div class="guide-head"><span>SAFETY ZONES</span><span>AT A GLANCE</span></div>
+          <div class="guide-row">
+            <span class="guide-color blue"></span><span><b>Water nearby</b><small>Pause and stay
+                aware</small></span><span class="guide-arrow">↗</span>
+          </div>
+          <div class="guide-row">
+            <span class="guide-color yellow"></span><span><b>Bridge ahead</b><small>Slow down and take
+                care</small></span><span class="guide-arrow">↗</span>
+          </div>
+          <div class="guide-row">
+            <span class="guide-color red"></span><span><b>Unsafe crossing</b><small>Stop and find a safer
+                route</small></span><span class="guide-arrow">↗</span>
+          </div>
+          <div class="guide-row">
+            <span class="guide-color orange"></span><span><b>Flood-prone area</b><small>Check local
+                conditions</small></span><span class="guide-arrow">↗</span>
+          </div>
+        </div>
+      </section>
+      <section class="v2-tools" aria-label="Safety tools">
+        <article class="checklist-card">
+          <div class="tools-heading">
+            <div>
+              <span class="section-kicker">QUICK CHECK-IN</span>
+              <h2>Before you head near water</h2>
+            </div>
+            <button id="reset-checklist" class="text-button">Reset</button>
+          </div>
+          <div class="checklist-items">
+            <label><input type="checkbox" data-check="distance" /><span>Keep a safe distance from the
+                edge</span></label>
+            <label><input type="checkbox" data-check="path" /><span>Use marked paths and crossings</span></label>
+            <label><input type="checkbox" data-check="children" /><span>Keep children within reach</span></label>
+            <label><input type="checkbox" data-check="conditions" /><span>Check local signs and
+                conditions</span></label>
+          </div>
+          <p class="local-save-note">
+            Checklist stays on this device. It is a reminder, not a safety guarantee.
+          </p>
+        </article>
+        <article class="offline-guide" id="offline-guide">
+          <span class="section-kicker">QUICK GUIDE · AVAILABLE OFFLINE AFTER FIRST LOAD</span>
+          <h2>If someone is in danger</h2>
+          <p>
+            Call your local emergency number. Do not enter the water to attempt a rescue unless you are
+            trained and equipped. From a safe place, alert a lifeguard or nearby responders and follow their
+            instructions.
+          </p>
+          <details>
+            <summary>Everyday water safety tips</summary>
+            <ul>
+              <li>Choose designated swimming areas and follow local signs.</li>
+              <li>Wear an appropriate life jacket when boating or fishing near deep water.</li>
+              <li>Never drive or walk through floodwater.</li>
+              <li>Keep children close and actively supervised around water.</li>
+            </ul>
+          </details>
+          <small>Guidance is general. Follow local emergency instructions.</small>
+        </article>
+      </section>
+      <footer>
+        <div class="footer-primary">
+          <span>SFY <span class="footer-sep">·</span> Safety for you</span><span>Awareness supports safety. It cannot
+            replace local guidance or your own judgment.</span>
+        </div>
+        <div class="footer-credit">
+          <span>Built by
+            <a href="https://ranganath.netlify.app/" target="_blank" rel="noopener noreferrer">Ranganath
+              V</a></span><span>Inspired by
+            <a href="http://linkedin.com/in/akash-m-0613a5311" target="_blank" rel="noopener noreferrer">Akash
+              M.</a></span><span>Connect on
+            <a href="https://www.linkedin.com/in/ranganath-v-75597315a/" target="_blank"
+              rel="noopener noreferrer">LinkedIn</a></span><span><a href="https://github.com/Ranganagth" target="_blank"
+              rel="noopener noreferrer">GitHub repo</a></span><span><a
+              href="https://github.com/akashf1sf/SFY---Safety-For-You" target="_blank"
+              rel="noopener noreferrer">Inspired project</a></span>
+        </div>
+      </footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="alert-modal" class="modal-backdrop" hidden>
+    <section class="alert-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" aria-label="Close alert">×</button><span class="modal-symbol">≈</span><span
+        class="section-kicker">SFY SAFETY REMINDER</span>
+      <h2 id="modal-title">Water nearby.</h2>
+      <p id="modal-copy">
+        Lotus Pond is close to your route. Stay on marked paths and keep a safe distance from the edge.
+      </p>
+      <ol id="alert-test-list" class="alert-test-list" aria-label="Alert categories in this demo" hidden>
+        <li data-alert-category="Water nearby">Water nearby</li>
+        <li data-alert-category="Bridge ahead">Bridge ahead</li>
+        <li data-alert-category="Unsafe crossing">Unsafe crossing</li>
+        <li data-alert-category="Flood-prone area">Flood-prone area</li>
+      </ol>
+      <div class="scenario-step" id="scenario-step">STEP 1 OF 3 · SAMPLE APPROACH</div>
+      <div class="modal-actions">
+        <button class="primary-button" id="scenario-next">Continue demo <span>✓</span></button><button
+          class="text-button" id="guide-btn">Read safety tips</button>
+      </div>
+      <small class="modal-disclaimer">Demo alert · Sample location · Not an emergency service</small>
+    </section>
+  </div>
+  <div id="hazard-modal" class="modal-backdrop" hidden>
+    <section class="alert-modal hazard-info-modal" role="dialog" aria-modal="true" aria-labelledby="hazard-title">
+      <button class="modal-close hazard-close" aria-label="Close lake details">×</button><span
+        class="modal-symbol">≈</span><span class="section-kicker">LAKE REFERENCE POINT</span>
+      <h2 id="hazard-title">Water nearby</h2>
+      <p id="hazard-detail"></p>
+      <small class="modal-disclaimer">CPCB monitoring point · Approximate demo radius · Not a shoreline or danger
+        boundary</small>
+    </section>
+  </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script src="/app-v2.js" defer></script>
+</body>
+
 </html>

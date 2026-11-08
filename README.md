@@ -1,4 +1,4 @@
-# SFY — Safety for You
+# SFY - Safety for You
 
 An offline-ready, mobile-friendly Node.js prototype for water-safety awareness. The original interface is preserved as V1; the root route serves the expanded V2 prototype.
 
@@ -14,12 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) for V2 or [http://localhost:
 
 ## Development scripts
 
-- `npm run start` — start the Node server.
-- `npm run dev` or `npm run start:dev` — restart the server when files change.
-- `npm run start:debug` — watch files with the Node inspector enabled.
-- `npm run build` — copy the server and static app into `dist/`.
-- `npm run start:prod` — serve the built `dist/` app.
-- `npm run format` / `npm run format:check` — format or check Markdown, JSON, JavaScript, HTML, CSS, and YAML with Prettier.
+- `npm run start` - start the Node server.
+- `npm run dev` or `npm run start:dev` - restart the server when files change.
+- `npm run start:debug` - watch files with the Node inspector enabled.
+- `npm run build` - copy the server and static app into `dist/`.
+- `npm run start:prod` - serve the built `dist/` app.
+- `npm run format` / `npm run format:check` - format or check Markdown, JSON, JavaScript, HTML, CSS, and YAML with Prettier.
 
 This is a dependency-light Node HTTP app, not a NestJS project, so its build and start scripts use Node directly.
 
