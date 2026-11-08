@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f8f7" />
+    <meta
+      name="description"
+      content="SFY helps you stay aware of water nearby. A local-first safety awareness prototype."
+    />
+    <title>SFY V1 — Safety for you</title>
+    <link rel="manifest" href="/v1/manifest.json" />
+    <link rel="stylesheet" href="/v1/styles.css" />
+    <link rel="stylesheet" href="/v1/credits.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="rail">
+        <a class="brand" href="#home" aria-label="SFY home"
+          ><span class="brand-mark">s<span>f</span>y</span
+          ><span class="brand-caption">SAFETY FOR YOU</span></a
+        >
+        <nav class="rail-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#home" aria-current="page"
+            ><span class="nav-icon">⌂</span><span>Overview</span></a
+          >
+          <a class="nav-item" href="#map"><span class="nav-icon">⌖</span><span>Safety map</span></a>
+          <a class="nav-item" href="#layers"><span class="nav-icon">▤</span><span>How it works</span></a>
+        </nav>
+        <div class="rail-bottom">
+          <span class="avatar">S</span
+          ><span class="rail-user"><b>Stay aware</b><small>Your safety companion</small></span
+          ><span class="more">···</span>
+        </div>
+      </aside>
+
+      <main id="home" class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">s<span>f</span>y</span></div>
+          <div class="breadcrumb">Your safety <span>/</span> <b>Overview</b></div>
+          <div class="top-actions">
+            <div class="connection-pill">
+              <span class="connection-dot"></span><span id="connection-text">Checking connection</span>
+            </div>
+            <button id="locate-btn" class="icon-button" aria-label="Use my location" title="Use my location">
+              ⌖</button
+            ><button class="profile-button" aria-label="Profile">S</button>
+          </div>
+        </header>
+        <div
+          style="
+            margin: 12px 0;
+            padding: 9px 12px;
+            border: 1px solid #dce8e0;
+            border-radius: 7px;
+            background: #f2f7f4;
+            color: #526e62;
+            font-size: 11px;
+          "
+        >
+          You are viewing the original SFY V1 prototype.
+          <a href="/" style="color: #28665b; font-weight: 700">Open V2 features →</a>
+        </div>
+
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE MORE AWARE, EVERY DAY</p>
+            <h1>
+              Stay close to what<br class="desktop-break" />
+              keeps you <em>safe.</em>
+            </h1>
+            <p class="welcome-copy">
+              Know when water is nearby. Take a moment, check your surroundings, and make a safer choice.
+            </p>
+          </div>
+          <div class="date-chip">
+            <span class="sun-icon">☀</span
+            ><span><b id="today-label">Today</b><small>Safety starts with awareness</small></span>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="map-card" id="map">
+            <div class="map-heading">
+              <div>
+                <span class="section-kicker">YOUR AREA <span class="live-dot"></span></span>
+                <h2>Nearby safety map</h2>
+                <p id="location-label">Showing a sample area · Demo hazards</p>
+              </div>
+              <button class="map-menu" aria-label="Map options">···</button>
+            </div>
+            <div class="map-wrap">
+              <svg
+                class="map-art"
+                viewBox="0 0 900 510"
+                role="img"
+                aria-label="Illustrated map showing a pond, bridge, flood area and your location"
+              >
+                <defs>
+                  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="#dbe5d9" />
+                  </pattern>
+                  <pattern id="waterlines" width="34" height="18" patternUnits="userSpaceOnUse">
+                    <path
+                      d="M0 8 Q8 2 17 8 T34 8"
+                      fill="none"
+                      stroke="#a6d4d5"
+                      stroke-width="1.5"
+                      opacity=".7"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="900" height="510" fill="#edf2e8" />
+                <rect width="900" height="510" fill="url(#dots)" />
+                <path
+                  d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218"
+                  fill="none"
+                  stroke="#dce8d6"
+                  stroke-width="62"
+                />
+                <path
+                  d="M-20 134 C128 178 205 147 315 202 S514 279 603 241 S768 171 930 218"
+                  fill="none"
+                  stroke="#fffdf8"
+                  stroke-width="34"
+                />
+                <path
+                  d="M135 -20 C180 100 150 223 199 320 S220 434 276 540"
+                  fill="none"
+                  stroke="#dce8d6"
+                  stroke-width="49"
+                />
+                <path
+                  d="M135 -20 C180 100 150 223 199 320 S220 434 276 540"
+                  fill="none"
+                  stroke="#fffdf8"
+                  stroke-width="25"
+                />
+                <path
+                  d="M563 -10 C528 101 566 164 533 265 S530 398 480 525"
+                  fill="none"
+                  stroke="#fffdf8"
+                  stroke-width="18"
+                />
+                <path
+                  d="M563 -10 C528 101 566 164 533 265 S530 398 480 525"
+                  fill="none"
+                  stroke="#e1e9dd"
+                  stroke-width="2"
+                  stroke-dasharray="7 9"
+                />
+                <path
+                  d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
+                  fill="#bfe1df"
+                />
+                <path
+                  d="M367 70 C407 51 475 68 492 110 C506 143 477 171 438 178 C397 185 355 165 350 131 C346 104 348 83 367 70Z"
+                  fill="url(#waterlines)"
+                />
+                <path
+                  d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
+                  fill="#c6e3df"
+                />
+                <path
+                  d="M665 329 C702 310 770 318 793 352 C815 386 778 410 742 405 C703 400 670 381 659 357Z"
+                  fill="url(#waterlines)"
+                />
+                <path
+                  d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z"
+                  fill="#c6e3df"
+                />
+                <path
+                  d="M43 294 C88 261 137 276 152 306 C166 336 132 366 93 361 C55 355 24 328 43 294Z"
+                  fill="url(#waterlines)"
+                />
+                <path
+                  class="flood-zone"
+                  d="M582 62 L741 33 L803 101 L777 179 L643 189 L594 146Z"
+                  fill="#f7c68d"
+                  opacity=".33"
+                  stroke="#e6a75f"
+                  stroke-width="2"
+                  stroke-dasharray="7 7"
+                />
+                <g class="map-label">
+                  <rect x="369" y="193" width="102" height="26" rx="13" />
+                  <text x="420" y="210" text-anchor="middle">LOTUS POND</text>
+                </g>
+                <g class="map-label soft">
+                  <rect x="683" y="415" width="111" height="26" rx="13" />
+                  <text x="738" y="432" text-anchor="middle">MILLER LAKE</text>
+                </g>
+                <g class="map-label soft">
+                  <rect x="44" y="376" width="108" height="26" rx="13" />
+                  <text x="98" y="393" text-anchor="middle">NORTH POND</text>
+                </g>
+                <g class="place-label">
+                  <text x="270" y="109">Maple Street</text>
+                  <text x="602" y="281">Riverside Road</text>
+                  <text x="294" y="394">Market Square</text>
+                  <text x="724" y="237">Eastwood</text>
+                </g>
+                <g class="hazard-marker water-marker" data-hazard="water" transform="translate(421 123)">
+                  <circle class="marker-halo" r="25" />
+                  <circle class="marker-core" r="17" />
+                  <text y="5" text-anchor="middle">≈</text>
+                </g>
+                <g class="hazard-marker bridge-marker" data-hazard="bridge" transform="translate(605 241)">
+                  <circle class="marker-halo" r="25" />
+                  <circle class="marker-core" r="17" />
+                  <text y="5" text-anchor="middle">!</text>
+                </g>
+                <g class="hazard-marker flood-marker" data-hazard="flood" transform="translate(704 114)">
+                  <circle class="marker-halo" r="25" />
+                  <circle class="marker-core" r="17" />
+                  <text y="5" text-anchor="middle">↗</text>
+                </g>
+                <g class="hazard-marker water-marker" data-hazard="water" transform="translate(729 365)">
+                  <circle class="marker-halo" r="25" />
+                  <circle class="marker-core" r="17" />
+                  <text y="5" text-anchor="middle">≈</text>
+                </g>
+                <g class="hazard-marker water-marker" data-hazard="water" transform="translate(97 319)">
+                  <circle class="marker-halo" r="25" />
+                  <circle class="marker-core" r="17" />
+                  <text y="5" text-anchor="middle">≈</text>
+                </g>
+                <g class="you-marker" id="you-marker" transform="translate(322 272)">
+                  <circle class="you-pulse" r="25" />
+                  <circle class="you-core" r="10" />
+                  <circle class="you-center" r="4" />
+                </g>
+                <g class="you-label" transform="translate(337 280)">
+                  <rect width="89" height="24" rx="12" />
+                  <text x="44" y="16" text-anchor="middle">SAMPLE POSITION</text>
+                </g>
+              </svg>
+              <div class="map-floating">
+                <span class="legend-dot you-dot"></span><span>Sample position</span
+                ><span class="legend-separator"></span><span class="legend-dot water-dot"></span
+                ><span>Sample water</span>
+              </div>
+              <div class="zoom-controls">
+                <button aria-label="Zoom in" id="zoom-in">+</button
+                ><button aria-label="Zoom out" id="zoom-out">−</button>
+              </div>
+              <div class="map-note"><span>ⓘ</span> Illustrative demo map · Not for navigation</div>
+            </div>
+            <div class="map-footer">
+              <div class="hazard-summary">
+                <span class="summary-icon">≈</span
+                ><span><b>3 water bodies nearby</b><small>Always check your surroundings</small></span>
+              </div>
+              <button id="simulate-btn" class="primary-button">Try a safety alert <span>↗</span></button>
+            </div>
+          </article>
+
+          <aside class="side-column">
+            <article class="alert-card">
+              <div class="alert-top">
+                <span class="alert-icon">!</span><span class="alert-status"><i></i> SAFETY CHECK</span>
+              </div>
+              <h2>Water is part<br />of the journey.</h2>
+              <p>
+                Water can be closer than it looks. Slow down near the edge, stay on marked paths, and keep
+                children within reach.
+              </p>
+              <div class="alert-divider"></div>
+              <div class="purpose-title">
+                <span>What brings you near?</span><small>Choose your activity</small>
+              </div>
+              <div class="purpose-grid" role="group" aria-label="Choose your activity">
+                <button class="purpose-button selected" data-purpose="Walking"><span>↗</span>Walking</button
+                ><button class="purpose-button" data-purpose="Driving"><span>⌁</span>Driving</button
+                ><button class="purpose-button" data-purpose="Fishing"><span>♧</span>Fishing</button
+                ><button class="purpose-button" data-purpose="Swimming"><span>≋</span>Swimming</button>
+              </div>
+              <p class="purpose-response" id="purpose-response" aria-live="polite">
+                Stay on marked paths around the water.
+              </p>
+            </article>
+            <article class="layers-card" id="layers">
+              <div class="layers-header">
+                <div>
+                  <span class="section-kicker">BUILT FOR REAL LIFE</span>
+                  <h3>Safety, in layers.</h3>
+                </div>
+                <span class="layers-mark">✳</span>
+              </div>
+              <div class="layer-list">
+                <div class="layer-row">
+                  <span class="layer-number">01</span><span class="layer-symbol map-symbol">⌖</span
+                  ><span><b>Know your surroundings</b><small>Location awareness</small></span
+                  ><span class="layer-check">✓</span>
+                </div>
+                <div class="layer-row">
+                  <span class="layer-number">02</span><span class="layer-symbol phone-symbol">◉</span
+                  ><span><b>Get a timely reminder</b><small>On-device notification</small></span
+                  ><span class="layer-check">✓</span>
+                </div>
+                <div class="layer-row">
+                  <span class="layer-number">03</span><span class="layer-symbol offline-symbol">↯</span
+                  ><span><b>Keep essentials available</b><small>Offline safety guide</small></span
+                  ><span class="layer-check">✓</span>
+                </div>
+              </div>
+              <div class="offline-banner">
+                <span class="offline-icon">⌁</span
+                ><span
+                  ><b>Safety guide works offline</b
+                  ><small>Map data and location need a device and prior setup.</small></span
+                >
+              </div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="bottom-row">
+          <div class="bottom-intro">
+            <span class="section-kicker">AWARENESS IS A GOOD FIRST STEP</span>
+            <h2>Make the safer choice<br />the easier one.</h2>
+            <p>
+              SFY is a concept for helping people notice nearby water and pause before risk. Start with local
+              knowledge and trusted safety guidance.
+            </p>
+            <a class="learn-link" href="#safety-guide">Read the quick safety guide <span>↗</span></a>
+          </div>
+          <div class="color-guide" id="safety-guide">
+            <div class="guide-head"><span>SAFETY ZONES</span><span>AT A GLANCE</span></div>
+            <div class="guide-row">
+              <span class="guide-color blue"></span
+              ><span><b>Water nearby</b><small>Pause and stay aware</small></span
+              ><span class="guide-arrow">↗</span>
+            </div>
+            <div class="guide-row">
+              <span class="guide-color yellow"></span
+              ><span><b>Bridge ahead</b><small>Slow down and take care</small></span
+              ><span class="guide-arrow">↗</span>
+            </div>
+            <div class="guide-row">
+              <span class="guide-color red"></span
+              ><span><b>Unsafe crossing</b><small>Stop and find a safer route</small></span
+              ><span class="guide-arrow">↗</span>
+            </div>
+            <div class="guide-row">
+              <span class="guide-color orange"></span
+              ><span><b>Flood-prone area</b><small>Check local conditions</small></span
+              ><span class="guide-arrow">↗</span>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <div class="footer-primary">
+            <span>SFY <span class="footer-sep">·</span> Safety for you</span
+            ><span>Awareness supports safety. It cannot replace local guidance or your own judgment.</span>
+          </div>
+          <div class="footer-credit">
+            <span
+              >Built by
+              <a href="https://ranganath.netlify.app/" target="_blank" rel="noopener noreferrer"
+                >Ranganath V</a
+              ></span
+            ><span
+              >Inspired by
+              <a href="http://linkedin.com/in/akash-m-0613a5311" target="_blank" rel="noopener noreferrer"
+                >Akash M.</a
+              ></span
+            ><span
+              >Connect on
+              <a
+                href="https://www.linkedin.com/in/ranganath-v-75597315a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              ></span
+            ><span
+              ><a href="https://github.com/Ranganagth" target="_blank" rel="noopener noreferrer"
+                >GitHub repo</a
+              ></span
+            ><span
+              ><a
+                href="https://github.com/akashf1sf/SFY---Safety-For-You"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Inspired project</a
+              ></span
+            >
+          </div>
+        </footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="alert-modal" class="modal-backdrop" hidden>
+      <section class="alert-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" aria-label="Close alert">×</button><span class="modal-symbol">≈</span
+        ><span class="section-kicker">SFY SAFETY REMINDER</span>
+        <h2 id="modal-title">Water nearby.</h2>
+        <p id="modal-copy">
+          Lotus Pond is close to your route. Stay on marked paths and keep a safe distance from the edge.
+        </p>
+        <div class="modal-actions">
+          <button class="primary-button" id="ack-alert">I understand <span>✓</span></button
+          ><button class="text-button" id="guide-btn">Read safety tips</button>
+        </div>
+        <small class="modal-disclaimer">Demo alert · Sample location · Not an emergency service</small>
+      </section>
+    </div>
+    <script src="/v1/app.js" defer></script>
+  </body>
+</html>

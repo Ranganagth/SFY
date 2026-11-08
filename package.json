@@ -1,0 +1,23 @@
+{
+  "name": "sfy-safety-for-you",
+  "version": "2.0.0",
+  "private": true,
+  "description": "An offline-ready water-safety awareness prototype",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "format": "prettier --write \"./**/*.{md,json,js,html,css,yml,yaml}\"",
+    "format:check": "prettier --check \"./**/*.{md,json,js,html,css,yml,yaml}\"",
+    "start": "node server.js",
+    "start:prod": "node dist/server.js",
+    "dev": "node --watch server.js",
+    "watch": "node --watch server.js",
+    "start:dev": "node --watch server.js",
+    "start:debug": "node --inspect --watch server.js"
+  },
+  "devDependencies": {
+    "prettier": "3.9.10"
+  },
+  "engines": {
+    "node": ">=18.11"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "SFY — Safety for You",
+  "short_name": "SFY V1",
+  "start_url": "/v1/",
+  "scope": "/v1/",
+  "display": "standalone",
+  "background_color": "#f5f8f7",
+  "theme_color": "#f5f8f7",
+  "description": "An offline-ready water safety awareness prototype",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
